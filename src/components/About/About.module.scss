@@ -1,0 +1,320 @@
+.about {
+  background: linear-gradient(135deg, $color-background 0%, lighten($color-secondary, 48%) 100%);
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba($color-accent, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.aboutHeader {
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutTitle {
+  font-size: $font-size-2xl;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, $color-secondary, $color-accent);
+    border-radius: $radius-full;
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-xl;
+  }
+}
+
+.aboutSubtitle {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-top: $spacing-xl;
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-sm;
+  }
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4xl;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: $breakpoint-desktop) {
+    gap: $spacing-3xl;
+  }
+}
+
+.aboutBio {
+  background: $color-white;
+  padding: $spacing-3xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-2xl;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-xl;
+  }
+}
+
+.bioText {
+  h3 {
+    font-size: $font-size-2xl;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+    
+    @media (max-width: $breakpoint-tablet) {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  p {
+    font-size: $font-size-md;
+    line-height: 1.8;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-xl;
+    
+    strong {
+      color: $color-secondary;
+      font-weight: $font-weight-semibold;
+    }
+    
+    @media (max-width: $breakpoint-tablet) {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+.bioRole {
+  font-size: $font-size-lg;
+  color: $color-secondary;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-2xl !important;
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-md;
+  }
+}
+
+.bioStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-2xl;
+  margin-top: $spacing-3xl;
+  padding-top: $spacing-2xl;
+  border-top: 2px solid $color-background;
+  
+  @media (max-width: $breakpoint-tablet) {
+    gap: $spacing-xl;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.stat {
+  text-align: center;
+  padding: $spacing-lg;
+  background: $color-background;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-md;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-xl;
+  }
+}
+
+.statNumber {
+  display: block;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-secondary;
+  margin-bottom: $spacing-sm;
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-2xl;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    margin-bottom: 0;
+    font-size: $font-size-xl;
+  }
+}
+
+.statLabel {
+  display: block;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-xs;
+  }
+}
+
+.aboutTimeline {
+  background: $color-white;
+  padding: $spacing-3xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-2xl;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-xl;
+  }
+}
+
+.timelineHeading {
+  font-size: $font-size-xl;
+  color: $color-text-primary;
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-md;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, $color-secondary, $color-accent);
+    border-radius: $radius-full;
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-lg;
+  }
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-xl;
+  
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.timelineItem {
+  position: relative;
+  height: 100%;
+}
+
+.timelineContent {
+  background: $color-white;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  border: 2px solid $color-background;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-sm;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, $color-secondary, $color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-slow;
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+    border-color: $color-secondary;
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-lg;
+  }
+}
+
+.timelineYear {
+  display: inline-block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  background: linear-gradient(135deg, $color-secondary, $color-accent);
+  padding: $spacing-xs $spacing-lg;
+  border-radius: $radius-full;
+  margin-bottom: $spacing-md;
+  box-shadow: $shadow-sm;
+}
+
+.timelineTitle {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-sm;
+  }
+}
+
+.timelineOrg {
+  font-size: $font-size-xs;
+  color: $color-secondary;
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-sm;
+}
+
+.timelineDescription {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  margin-bottom: 0;
+}

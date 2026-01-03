@@ -1,0 +1,249 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, $color-background 0%, lighten($color-secondary, 45%) 100%);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba($color-accent, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba($color-secondary, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-4xl;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+    text-align: center;
+  }
+}
+
+.heroText {
+  @media (max-width: $breakpoint-tablet) {
+    order: 2;
+  }
+}
+
+.heroName {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-lg;
+  color: $color-text-primary;
+  line-height: 1.1;
+  
+  @media (max-width: $breakpoint-desktop) {
+    font-size: $font-size-2xl;
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-xl;
+  }
+}
+
+.highlight {
+  color: $color-secondary;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, $color-secondary, $color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineGrow 0.8s ease forwards 1.5s;
+  }
+}
+
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.heroTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xl;
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-lg;
+  }
+}
+
+.heroDescription {
+  font-size: $font-size-md;
+  line-height: 1.8;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-2xl;
+  max-width: 600px;
+  
+  strong {
+    color: $color-text-primary;
+    font-weight: $font-weight-semibold;
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-sm;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.heroCta {
+  display: flex;
+  gap: $spacing-lg;
+  
+  @media (max-width: $breakpoint-tablet) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    gap: $spacing-md;
+    width: 100%;
+  }
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  padding: $spacing-md $spacing-2xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  transition: all $transition-base;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+  
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+    padding: $spacing-lg $spacing-xl;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color-secondary;
+    outline-offset: 2px;
+  }
+}
+
+.ctaPrimary {
+  background: linear-gradient(135deg, $color-secondary, darken($color-secondary, 10%));
+  color: $color-white;
+  box-shadow: $shadow-md;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: $color-secondary;
+  border: 2px solid $color-secondary;
+  
+  &:hover {
+    background: $color-secondary;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: $breakpoint-tablet) {
+    order: 1;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  
+  @media (max-width: $breakpoint-desktop) {
+    width: 350px;
+    height: 350px;
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    width: 300px;
+    height: 300px;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid $color-white;
+  box-shadow: $shadow-xl;
+  position: relative;
+  z-index: 2;
+}
+
+.imageGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: 110%;
+  background: radial-gradient(circle, rgba($color-secondary, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.3;
+  }
+}
