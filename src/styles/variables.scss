@@ -39,7 +39,7 @@ $spacing-4xl: 6rem;     // 96px
 $spacing-5xl: 8rem;     // 128px
 
 // Breakpoints
-$breakpoint-mobile: 320px;
+$breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-large: 1440px;
@@ -65,10 +65,10 @@ $shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 
 $z-index-dropdown: 1000;
 $z-index-sticky: 1020;
 $z-index-fixed: 1030;
-$z-index-modal-backdrop: 1040;
-$z-index-modal: 1050;
-$z-index-popover: 1060;
-$z-index-tooltip: 1070;
+$z-index-modal-backdrop: 9998;
+$z-index-modal: 9999;
+$z-index-popover: 10000;
+$z-index-tooltip: 10001;
 
 // Container
 $container-max-width: 1200px;

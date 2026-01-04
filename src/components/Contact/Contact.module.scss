@@ -41,7 +41,7 @@
   
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
-    gap: $spacing-3xl;
+    gap: $spacing-2xl;
   }
 }
 
@@ -199,6 +199,11 @@
   border: 2px solid transparent;
   border-radius: $radius-md;
   transition: all $transition-base;
+  width: 100%;
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 16px; // Prevents zoom on iOS
+  }
   
   &:focus {
     outline: none;

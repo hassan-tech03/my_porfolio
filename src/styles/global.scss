@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -19,6 +20,8 @@ body {
   background-color: $color-background;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -115,6 +118,7 @@ ul, ol {
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $container-padding;
+  width: 100%;
   
   @media (max-width: $breakpoint-tablet) {
     padding: 0 $spacing-lg;

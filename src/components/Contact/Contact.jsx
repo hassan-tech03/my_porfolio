@@ -11,25 +11,25 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/hassan-shahid',
+      url: 'https://www.linkedin.com/in/hassan-shahid-3006751b1/',
       icon: <FaLinkedin />,
       color: '#0077B5'
     },
     {
       name: 'Upwork',
-      url: 'https://www.upwork.com/freelancers/hassanshahid',
+      url: 'https://www.upwork.com/freelancers/~01ff511319638b362f',
       icon: <SiUpwork />,
       color: '#6FDA44'
     },
     {
       name: 'GitHub',
-      url: 'https://github.com/hassanshahid',
+      url: 'https://github.com/Hassan031998',
       icon: <FaGithub />,
       color: '#333'
     },
     {
       name: 'Email',
-      url: 'mailto:hassan.shahid@example.com',
+      url: 'mailto:hassan.shahid031998@gmail.com',
       icon: <FaEnvelope />,
       color: '#EA4335'
     }
@@ -64,14 +64,14 @@ const Contact = () => {
             </p>
 
             <div className={styles.contactDetails}>
-              <a href="mailto:hassan.shahid@example.com" className={styles.contactDetail}>
+              <a href="mailto:hassan.shahid031998@gmail.com" className={styles.contactDetail}>
                 <FaEnvelope className={styles.contactIcon} />
-                <span>hassan.shahid@example.com</span>
+                <span>hassan.shahid031998@gmail.com</span>
               </a>
               
-              <a href="tel:+1234567890" className={styles.contactDetail}>
+              <a href="tel:+923069167328" className={styles.contactDetail}>
                 <FaPhone className={styles.contactIcon} />
-                <span>+1 (234) 567-890</span>
+                <span>+92 306 9167328</span>
               </a>
             </div>
 

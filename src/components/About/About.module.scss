@@ -131,11 +131,12 @@
   
   @media (max-width: $breakpoint-tablet) {
     gap: $spacing-xl;
+    grid-template-columns: repeat(3, 1fr);
   }
   
   @media (max-width: $breakpoint-mobile) {
     grid-template-columns: 1fr;
-    gap: $spacing-lg;
+    gap: $spacing-md;
   }
 }
 
@@ -234,6 +235,7 @@
   
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
+    gap: $spacing-lg;
   }
 }
 

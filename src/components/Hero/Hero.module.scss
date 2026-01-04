@@ -5,6 +5,7 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, $color-background 0%, lighten($color-secondary, 45%) 100%);
+  z-index: 1;
   
   &::before {
     content: '';
@@ -16,6 +17,7 @@
     background: radial-gradient(circle at 20% 50%, rgba($color-accent, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba($color-secondary, 0.1) 0%, transparent 50%);
     pointer-events: none;
+    z-index: 0;
   }
 }
 
@@ -27,9 +29,13 @@
   position: relative;
   z-index: 1;
   
+  @media (max-width: $breakpoint-desktop) {
+    gap: $spacing-3xl;
+  }
+  
   @media (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
-    gap: $spacing-3xl;
+    gap: $spacing-2xl;
     text-align: center;
   }
 }
@@ -53,6 +59,10 @@
   
   @media (max-width: $breakpoint-tablet) {
     font-size: $font-size-xl;
+  }
+  
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 1.75rem;
   }
 }
 

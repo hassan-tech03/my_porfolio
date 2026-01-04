@@ -1,24 +1,22 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { useScrollSpy } from '../../hooks/useScrollSpy';
-import { useIsMobile } from '../../hooks/useMediaQuery';
-import styles from './Navigation.module.scss';
+import { useState, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
+import { useScrollSpy } from "../../hooks/useScrollSpy";
+import { useIsMobile } from "../../hooks/useMediaQuery";
+import styles from "./Navigation.module.scss";
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useIsMobile();
 
   const sections = [
-    { id: 'home', label: 'Home' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'about', label: 'About' },
-    { id: 'contact', label: 'Contact' }
+    { id: "home", label: "Home" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "about", label: "About" },
+    { id: "contact", label: "Contact" },
   ];
 
-  const sectionIds = sections.map(section => section.id);
+  const sectionIds = sections.map((section) => section.id);
   const activeSection = useScrollSpy(sectionIds, 100);
 
   useEffect(() => {
@@ -26,40 +24,37 @@ const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuOpen]);
 
   const handleLinkClick = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    // Close offcanvas
+    const offcanvasElement = document.getElementById("offcanvasNavbar");
+    if (offcanvasElement) {
+      const bsOffcanvas =
+        window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+      if (bsOffcanvas) {
+        bsOffcanvas.hide();
+      }
+    }
   };
 
   return (
-    <motion.nav
-      className={`${styles.navigation} ${isScrolled ? styles.scrolled : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <nav
+      className={`${styles.navigation} ${isScrolled ? styles.scrolled : ""}`}
     >
       <div className="container">
         <div className={styles.navContent}>
-          <a href="#home" className={styles.logo} onClick={() => handleLinkClick('home')}>
+          <a
+            href="#home"
+            className={styles.logo}
+            onClick={() => handleLinkClick("home")}
+          >
             <span className={styles.logoText}>Portfolio</span>
           </a>
 
@@ -71,7 +66,7 @@ const Navigation = () => {
                   <a
                     href={`#${section.id}`}
                     className={`${styles.navLink} ${
-                      activeSection === section.id ? styles.active : ''
+                      activeSection === section.id ? styles.active : ""
                     }`}
                     onClick={(e) => {
                       e.preventDefault();
@@ -89,62 +84,77 @@ const Navigation = () => {
           {isMobile && (
             <button
               className={styles.menuButton}
-              onClick={toggleMenu}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMenuOpen}
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
             >
-              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              <FaBars size={24} />
             </button>
           )}
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobile && isMenuOpen && (
-          <>
-            <motion.div
-              className={styles.menuBackdrop}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={toggleMenu}
-            />
-            <motion.div
-              className={styles.mobileMenu}
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-            >
-              <ul className={styles.mobileNavLinks}>
-                {sections.map((section, index) => (
-                  <motion.li
-                    key={section.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+      {/* Bootstrap Offcanvas for Mobile */}
+      {isMobile && (
+        <div
+          className="offcanvas offcanvas-end"
+          tabIndex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          style={{
+            zIndex: 10000,
+            backgroundColor: "#ffffff",
+            height: "100vh",
+          }}
+        >
+          <div
+            className="offcanvas-header"
+            style={{
+              borderBottom: "2px solid #F7FAFC",
+              backgroundColor: "#ffffff",
+            }}
+          >
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            className="offcanvas-body"
+            style={{
+              padding: "1.5rem",
+              backgroundColor: "#ffffff",
+              overflowY: "auto",
+              flexGrow: 1,
+              height: "100%",
+            }}
+          >
+            <ul className={styles.mobileNavLinks}>
+              {sections.map((section) => (
+                <li key={section.id}>
+                  <a
+                    href={`#${section.id}`}
+                    className={`${styles.mobileNavLink} ${
+                      activeSection === section.id ? styles.active : ""
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinkClick(section.id);
+                    }}
                   >
-                    <a
-                      href={`#${section.id}`}
-                      className={`${styles.mobileNavLink} ${
-                        activeSection === section.id ? styles.active : ''
-                      }`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleLinkClick(section.id);
-                      }}
-                    >
-                      {section.label}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+                    {section.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 

@@ -67,11 +67,16 @@
   gap: $spacing-xl;
   
   @media (max-width: $breakpoint-tablet) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: $spacing-lg;
   }
   
   @media (max-width: $breakpoint-mobile) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+  
+  @media (max-width: 400px) {
     grid-template-columns: 1fr;
   }
 }
@@ -87,6 +92,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-lg;
+  }
   
   &:hover {
     border-color: $color-secondary;

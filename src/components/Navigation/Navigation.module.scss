@@ -132,57 +132,76 @@
   }
 }
 
-.menuBackdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba($color-dark, 0.5);
-  z-index: $z-index-modal-backdrop;
-}
-
-.mobileMenu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 80%;
-  max-width: 300px;
-  background: $color-white;
-  z-index: $z-index-modal;
-  padding: $spacing-3xl $spacing-xl;
-  box-shadow: $shadow-xl;
-  overflow-y: auto;
+// Bootstrap Offcanvas customization
+:global {
+  .offcanvas {
+    z-index: 10000 !important;
+    background-color: #ffffff !important;
+    height: 100vh !important;
+  }
+  
+  .offcanvas-backdrop {
+    z-index: 9999 !important;
+  }
+  
+  .offcanvas.show {
+    visibility: visible !important;
+  }
+  
+  .offcanvas-header {
+    border-bottom: 2px solid $color-background;
+    background-color: #ffffff;
+    flex-shrink: 0;
+  }
+  
+  .offcanvas-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+  }
+  
+  .offcanvas-body {
+    padding: $spacing-lg;
+    background-color: #ffffff;
+    overflow-y: auto;
+    flex-grow: 1;
+    height: 100%;
+  }
 }
 
 .mobileNavLinks {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: $spacing-lg;
+  gap: $spacing-sm;
+  padding: 0;
+  margin: 0;
 }
 
 .mobileNavLink {
-  color: $color-text-primary;
+  color: $color-text-primary !important;
   text-decoration: none;
   font-weight: $font-weight-medium;
   font-size: $font-size-md;
-  padding: $spacing-md;
+  padding: $spacing-sm $spacing-md;
   display: block;
   border-radius: $radius-md;
   transition: all $transition-base;
+  border-left: 4px solid transparent;
+  background: transparent;
   
   &:hover {
-    background: $color-background;
-    color: $color-secondary;
+    background: $color-background !important;
+    color: $color-secondary !important;
+    border-left-color: $color-secondary;
     padding-left: $spacing-lg;
   }
   
   &.active {
-    background: lighten($color-secondary, 45%);
-    color: $color-secondary;
-    border-left: 4px solid $color-secondary;
+    background: lighten($color-secondary, 45%) !important;
+    color: $color-secondary !important;
+    border-left-color: $color-secondary;
+    font-weight: $font-weight-semibold;
   }
   
   &:focus-visible {
