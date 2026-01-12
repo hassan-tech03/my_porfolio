@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { useScrollSpy } from "../../hooks/useScrollSpy";
-import { useIsMobile } from "../../hooks/useMediaQuery";
-import styles from "./Navigation.module.scss";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const isMobile = useIsMobile();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const sections = [
     { id: "home", label: "Home" },
@@ -33,128 +31,174 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    // Close offcanvas
-    const offcanvasElement = document.getElementById("offcanvasNavbar");
-    if (offcanvasElement) {
-      const bsOffcanvas =
-        window.bootstrap.Offcanvas.getInstance(offcanvasElement);
-      if (bsOffcanvas) {
-        bsOffcanvas.hide();
-      }
-    }
+    
+    // Close mobile menu
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav
-      className={`${styles.navigation} ${isScrolled ? styles.scrolled : ""}`}
-    >
-      <div className="container">
-        <div className={styles.navContent}>
-          <a
+    <>
+      <nav 
+        className={`navbar navbar-expand-lg fixed-top ${isScrolled ? 'navbar-scrolled' : ''}`}
+        style={{
+          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)',
+          backdropFilter: 'blur(10px)',
+          transition: 'all 0.3s ease-in-out',
+          borderBottom: isScrolled ? '1px solid #e5e7eb' : 'none',
+          zIndex: 1050,
+          boxShadow: isScrolled ? '0 2px 20px rgba(0, 0, 0, 0.1)' : 'none'
+        }}
+      >
+        <div className="container">
+          {/* Brand/Logo */}
+          <a 
+            className="navbar-brand fw-bold fs-4 text-primary"
             href="#home"
-            className={styles.logo}
-            onClick={() => handleLinkClick("home")}
+            onClick={(e) => {
+              e.preventDefault();
+              handleLinkClick("home");
+            }}
+            style={{
+              textDecoration: 'none',
+              transition: 'color 0.3s ease'
+            }}
           >
-            <span className={styles.logoText}>Portfolio</span>
+            Hassan Shahid
           </a>
 
+          {/* Mobile Toggle Button */}
+          <button
+            className="navbar-toggler border-0 p-2 d-lg-none"
+            type="button"
+            onClick={toggleMobileMenu}
+            aria-expanded={isMobileMenuOpen}
+            aria-label="Toggle navigation"
+            style={{
+              boxShadow: 'none',
+              color: 'var(--bs-primary)'
+            }}
+          >
+            <FaBars size={20} />
+          </button>
+
           {/* Desktop Navigation */}
-          {!isMobile && (
-            <ul className={styles.navLinks}>
+          <div className="collapse navbar-collapse d-none d-lg-block">
+            <ul className="navbar-nav ms-auto">
               {sections.map((section) => (
-                <li key={section.id}>
+                <li key={section.id} className="nav-item mx-2">
                   <a
-                    href={`#${section.id}`}
-                    className={`${styles.navLink} ${
-                      activeSection === section.id ? styles.active : ""
+                    className={`nav-link fw-medium position-relative px-3 py-2 ${
+                      activeSection === section.id ? 'text-primary' : 'text-dark'
                     }`}
+                    href={`#${section.id}`}
                     onClick={(e) => {
                       e.preventDefault();
                       handleLinkClick(section.id);
                     }}
+                    style={{
+                      transition: 'color 0.3s ease',
+                      textDecoration: 'none'
+                    }}
                   >
                     {section.label}
+                    <span 
+                      className={`position-absolute bottom-0 start-50 translate-middle-x bg-primary ${
+                        activeSection === section.id ? 'w-75' : 'w-0'
+                      }`}
+                      style={{
+                        height: '2px',
+                        transition: 'width 0.3s ease'
+                      }}
+                    ></span>
                   </a>
                 </li>
               ))}
             </ul>
-          )}
+          </div>
+        </div>
+      </nav>
 
-          {/* Mobile Menu Button */}
-          {isMobile && (
-            <button
-              className={styles.menuButton}
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
-              aria-label="Toggle navigation"
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="position-fixed w-100 h-100 bg-dark bg-opacity-50 d-lg-none"
+          style={{ 
+            top: 0, 
+            left: 0, 
+            zIndex: 1040 
+          }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Navigation Menu */}
+      <div
+        className={`position-fixed top-0 end-0 h-100 bg-white shadow-lg d-lg-none ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-100'
+        }`}
+        style={{
+          width: '300px',
+          zIndex: 1045,
+          transition: 'transform 0.3s ease-in-out',
+          transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)'
+        }}
+      >
+        <div className="d-flex justify-content-between align-items-center p-4 border-bottom">
+          <h5 className="fw-bold text-primary mb-0">Navigation</h5>
+          <button
+            type="button"
+            className="btn-close"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Close"
+          ></button>
+        </div>
+        
+        <div className="p-4">
+          <ul className="navbar-nav">
+            {sections.map((section) => (
+              <li key={section.id} className="nav-item mb-2">
+                <a
+                  className={`nav-link fw-medium px-3 py-3 rounded-3 d-block ${
+                    activeSection === section.id 
+                      ? 'text-primary bg-primary bg-opacity-10 border-start border-primary border-3' 
+                      : 'text-dark'
+                  }`}
+                  href={`#${section.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(section.id);
+                  }}
+                  style={{
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none'
+                  }}
+                >
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          
+          {/* Mobile CTA */}
+          <div className="mt-4 pt-4 border-top">
+            <a 
+              href="#contact" 
+              className="btn btn-primary w-100 py-3 fw-medium"
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick("contact");
+              }}
             >
-              <FaBars size={24} />
-            </button>
-          )}
+              Get In Touch
+            </a>
+          </div>
         </div>
       </div>
-
-      {/* Bootstrap Offcanvas for Mobile */}
-      {isMobile && (
-        <div
-          className="offcanvas offcanvas-end"
-          tabIndex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-          style={{
-            zIndex: 10000,
-            backgroundColor: "#ffffff",
-            height: "100vh",
-          }}
-        >
-          <div
-            className="offcanvas-header"
-            style={{
-              borderBottom: "2px solid #F7FAFC",
-              backgroundColor: "#ffffff",
-            }}
-          >
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div
-            className="offcanvas-body"
-            style={{
-              padding: "1.5rem",
-              backgroundColor: "#ffffff",
-              overflowY: "auto",
-              flexGrow: 1,
-              height: "100%",
-            }}
-          >
-            <ul className={styles.mobileNavLinks}>
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <a
-                    href={`#${section.id}`}
-                    className={`${styles.mobileNavLink} ${
-                      activeSection === section.id ? styles.active : ""
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinkClick(section.id);
-                    }}
-                  >
-                    {section.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-    </nav>
+    </>
   );
 };
 

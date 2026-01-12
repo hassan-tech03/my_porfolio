@@ -1,0 +1,259 @@
+// Bootstrap Custom Configuration
+// Import our design system variables first
+@import './variables';
+
+// Bootstrap Variable Overrides
+// Colors
+$primary: $color-primary;
+$secondary: $color-secondary;
+$success: $color-success;
+$info: $color-info;
+$warning: $color-warning;
+$danger: $color-danger;
+$light: $color-neutral-100;
+$dark: $color-dark;
+
+// Gray scale
+$gray-100: $color-neutral-100;
+$gray-200: $color-neutral-200;
+$gray-300: $color-neutral-300;
+$gray-400: $color-neutral-400;
+$gray-500: $color-neutral-500;
+$gray-600: $color-neutral-600;
+$gray-700: $color-neutral-700;
+$gray-800: $color-neutral-800;
+$gray-900: $color-neutral-900;
+
+// Typography
+$font-family-sans-serif: $font-family-base;
+$font-family-monospace: $font-family-code;
+$font-size-base: $font-size-sm;
+$font-weight-normal: $font-weight-normal;
+$font-weight-bold: $font-weight-bold;
+$line-height-base: 1.6;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  8: $spacing-8,
+  10: $spacing-10,
+  12: $spacing-12,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  32: $spacing-32
+);
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+  xxl: $breakpoint-xxl
+);
+
+// Container max widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px,
+  xxl: 1320px
+);
+
+// Border radius
+$border-radius: 0.5rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 1rem;
+$border-radius-pill: 50rem;
+
+// Shadows
+$box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+$box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+
+// Transitions
+$transition-base: all .3s ease-in-out;
+$transition-fade: opacity .15s linear;
+$transition-collapse: height .35s ease;
+
+// Component customizations
+// Navbar
+$navbar-padding-y: $spacing-4;
+$navbar-padding-x: 0;
+$navbar-brand-font-size: $font-size-xl;
+$navbar-brand-font-weight: $font-weight-bold;
+
+// Cards
+$card-border-radius: $border-radius;
+$card-border-width: 0;
+$card-box-shadow: $box-shadow-sm;
+$card-spacer-y: $spacing-6;
+$card-spacer-x: $spacing-6;
+
+// Buttons
+$btn-padding-y: $spacing-3;
+$btn-padding-x: $spacing-6;
+$btn-font-weight: $font-weight-medium;
+$btn-border-radius: $border-radius;
+$btn-transition: all .2s ease-in-out;
+
+// Forms
+$input-padding-y: $spacing-3;
+$input-padding-x: $spacing-4;
+$input-font-size: $font-size-sm;
+$input-border-radius: $border-radius;
+$input-focus-border-color: $color-primary;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Custom component enhancements
+.btn {
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.card {
+  transition: all 0.3s ease-in-out;
+  border: 1px solid $color-neutral-200;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: $color-neutral-300;
+  }
+}
+
+// Navbar - ensure single instance and proper styling
+.navbar {
+  // Prevent any Bootstrap auto-duplication
+  &:not(:first-of-type) {
+    display: none !important;
+  }
+  
+  // Prevent Bootstrap from creating duplicate navbars
+  &.navbar-expand-lg {
+    .navbar-collapse {
+      display: none !important;
+      
+      @media (min-width: 992px) {
+        display: flex !important;
+      }
+    }
+  }
+  
+  // Ensure proper positioning
+  &.fixed-top {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1050;
+  }
+  
+  .navbar-brand {
+    &:hover {
+      color: $color-primary !important;
+    }
+  }
+  
+  .nav-link {
+    &:hover {
+      color: $color-primary !important;
+      
+      span {
+        width: 75% !important;
+      }
+    }
+  }
+  
+  // Scrolled state
+  &.navbar-scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Ensure only one navbar exists globally
+body {
+  .navbar {
+    &:nth-of-type(n+2) {
+      display: none !important;
+    }
+  }
+}
+
+// Mobile menu styling
+.navbar-toggler {
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+// Custom utility classes
+.text-gradient {
+  background: linear-gradient(135deg, $color-primary, $color-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, $color-primary, #3b82f6);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, $color-secondary, #8b5cf6);
+}
+
+.shadow-soft {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-hover {
+  transition: box-shadow 0.3s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Clean skill card styles
+.skill-card {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Image optimization
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}

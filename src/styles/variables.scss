@@ -1,48 +1,90 @@
-// Color Palette - Human-centered, not generic
-$color-primary: #2D3748;        // Charcoal - Professional, grounded
-$color-secondary: #4A90E2;      // Sky Blue - Approachable, trustworthy
-$color-accent: #F59E0B;         // Warm Amber - Energy, creativity
-$color-background: #F7FAFC;     // Soft White - Clean, spacious
-$color-text-primary: #1A202C;   // Deep Charcoal
-$color-text-secondary: #718096; // Slate Gray
-$color-success: #10B981;        // Emerald
-$color-error: #EF4444;          // Coral Red
-$color-white: #FFFFFF;
-$color-dark: #1A202C;
+// Modern Professional Color Palette
+$color-primary: #2563eb;        // Professional blue
+$color-secondary: #7c3aed;      // Accent purple
+$color-success: #059669;        // Green for positive actions
+$color-warning: #d97706;        // Amber for warnings
+$color-danger: #dc2626;         // Red for errors
+$color-info: #0891b2;           // Cyan for information
 
-// Typography
+// Neutral Gray Scale
+$color-neutral-50: #f8fafc;
+$color-neutral-100: #f1f5f9;
+$color-neutral-200: #e2e8f0;
+$color-neutral-300: #cbd5e1;
+$color-neutral-400: #94a3b8;
+$color-neutral-500: #64748b;
+$color-neutral-600: #475569;
+$color-neutral-700: #334155;
+$color-neutral-800: #1e293b;
+$color-neutral-900: #0f172a;
+
+// Semantic Colors
+$color-background: #ffffff;
+$color-background-alt: #f8fafc;
+$color-text-primary: #0f172a;
+$color-text-secondary: #64748b;
+$color-white: #ffffff;
+$color-dark: #0f172a;
+
+// Typography - Modern Professional Scale
 $font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-family-code: 'JetBrains Mono', 'Courier New', monospace;
 
-$font-size-xs: 0.875rem;   // 14px
-$font-size-sm: 1rem;        // 16px
+// Font Size Scale (based on design document)
+$font-size-xs: 0.75rem;     // 12px
+$font-size-sm: 1rem;        // 16px - base
 $font-size-md: 1.125rem;    // 18px
-$font-size-lg: 1.5rem;      // 24px
-$font-size-xl: 2rem;        // 32px
-$font-size-2xl: 3rem;       // 48px
-$font-size-3xl: 4rem;       // 64px
+$font-size-lg: 1.25rem;     // 20px
+$font-size-xl: 1.5rem;      // 24px
+$font-size-2xl: 2rem;       // 32px
+$font-size-3xl: 2.5rem;     // 40px
+$font-size-4xl: 3.5rem;     // 56px
 
 $font-weight-normal: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-// Spacing System (base unit: 8px)
-$spacing-xs: 0.25rem;   // 4px
-$spacing-sm: 0.5rem;    // 8px
-$spacing-md: 1rem;      // 16px
-$spacing-lg: 1.5rem;    // 24px
-$spacing-xl: 2rem;      // 32px
-$spacing-2xl: 3rem;     // 48px
-$spacing-3xl: 4rem;     // 64px
-$spacing-4xl: 6rem;     // 96px
-$spacing-5xl: 8rem;     // 128px
+// Spacing System (base unit: 0.25rem = 4px)
+$spacing-0: 0;
+$spacing-1: 0.25rem;    // 4px
+$spacing-2: 0.5rem;     // 8px
+$spacing-3: 0.75rem;    // 12px
+$spacing-4: 1rem;       // 16px
+$spacing-5: 1.25rem;    // 20px
+$spacing-6: 1.5rem;     // 24px
+$spacing-8: 2rem;       // 32px
+$spacing-10: 2.5rem;    // 40px
+$spacing-12: 3rem;      // 48px
+$spacing-16: 4rem;      // 64px
+$spacing-20: 5rem;      // 80px
+$spacing-24: 6rem;      // 96px
+$spacing-32: 8rem;      // 128px
 
-// Breakpoints
-$breakpoint-mobile: 480px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
-$breakpoint-large: 1440px;
+// Legacy spacing for compatibility
+$spacing-xs: $spacing-1;
+$spacing-sm: $spacing-2;
+$spacing-md: $spacing-4;
+$spacing-lg: $spacing-6;
+$spacing-xl: $spacing-8;
+$spacing-2xl: $spacing-12;
+$spacing-3xl: $spacing-16;
+$spacing-4xl: $spacing-24;
+$spacing-5xl: $spacing-32;
+
+// Breakpoints (Bootstrap compatible)
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Legacy breakpoints for compatibility
+$breakpoint-mobile: $breakpoint-sm;
+$breakpoint-tablet: $breakpoint-md;
+$breakpoint-desktop: $breakpoint-lg;
+$breakpoint-large: $breakpoint-xl;
 
 // Transitions
 $transition-fast: 0.15s ease;

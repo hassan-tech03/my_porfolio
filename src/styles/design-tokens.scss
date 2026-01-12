@@ -1,0 +1,156 @@
+// Design Tokens - CSS Custom Properties
+// This file creates CSS custom properties from our SCSS variables
+// for use in components and dynamic styling
+
+@import './variables';
+
+:root {
+  // Colors - Primary Palette
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-danger: #{$color-danger};
+  --color-info: #{$color-info};
+  
+  // Colors - Neutral Scale
+  --color-neutral-50: #{$color-neutral-50};
+  --color-neutral-100: #{$color-neutral-100};
+  --color-neutral-200: #{$color-neutral-200};
+  --color-neutral-300: #{$color-neutral-300};
+  --color-neutral-400: #{$color-neutral-400};
+  --color-neutral-500: #{$color-neutral-500};
+  --color-neutral-600: #{$color-neutral-600};
+  --color-neutral-700: #{$color-neutral-700};
+  --color-neutral-800: #{$color-neutral-800};
+  --color-neutral-900: #{$color-neutral-900};
+  
+  // Colors - Semantic
+  --color-background: #{$color-background};
+  --color-background-alt: #{$color-background-alt};
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-white: #{$color-white};
+  --color-dark: #{$color-dark};
+  
+  // Typography
+  --font-family-base: #{$font-family-base};
+  --font-family-code: #{$font-family-code};
+  
+  --font-size-xs: #{$font-size-xs};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-md: #{$font-size-md};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-size-3xl: #{$font-size-3xl};
+  --font-size-4xl: #{$font-size-4xl};
+  
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+  
+  // Spacing
+  --spacing-0: #{$spacing-0};
+  --spacing-1: #{$spacing-1};
+  --spacing-2: #{$spacing-2};
+  --spacing-3: #{$spacing-3};
+  --spacing-4: #{$spacing-4};
+  --spacing-5: #{$spacing-5};
+  --spacing-6: #{$spacing-6};
+  --spacing-8: #{$spacing-8};
+  --spacing-10: #{$spacing-10};
+  --spacing-12: #{$spacing-12};
+  --spacing-16: #{$spacing-16};
+  --spacing-20: #{$spacing-20};
+  --spacing-24: #{$spacing-24};
+  --spacing-32: #{$spacing-32};
+  
+  // Transitions
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+  
+  // Border Radius
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-full: #{$radius-full};
+  
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  
+  // Z-index
+  --z-dropdown: #{$z-index-dropdown};
+  --z-sticky: #{$z-index-sticky};
+  --z-fixed: #{$z-index-fixed};
+  --z-modal-backdrop: #{$z-index-modal-backdrop};
+  --z-modal: #{$z-index-modal};
+  --z-popover: #{$z-index-popover};
+  --z-tooltip: #{$z-index-tooltip};
+  
+  // Container
+  --container-max-width: #{$container-max-width};
+  --container-padding: #{$container-padding};
+}
+
+// Utility classes using design tokens
+.design-system {
+  // Color utilities
+  &-text-primary { color: var(--color-text-primary); }
+  &-text-secondary { color: var(--color-text-secondary); }
+  &-text-muted { color: var(--color-neutral-500); }
+  
+  &-bg-primary { background-color: var(--color-primary); }
+  &-bg-secondary { background-color: var(--color-secondary); }
+  &-bg-neutral-50 { background-color: var(--color-neutral-50); }
+  &-bg-neutral-100 { background-color: var(--color-neutral-100); }
+  
+  // Typography utilities
+  &-font-xs { font-size: var(--font-size-xs); }
+  &-font-sm { font-size: var(--font-size-sm); }
+  &-font-md { font-size: var(--font-size-md); }
+  &-font-lg { font-size: var(--font-size-lg); }
+  &-font-xl { font-size: var(--font-size-xl); }
+  &-font-2xl { font-size: var(--font-size-2xl); }
+  &-font-3xl { font-size: var(--font-size-3xl); }
+  &-font-4xl { font-size: var(--font-size-4xl); }
+  
+  &-font-normal { font-weight: var(--font-weight-normal); }
+  &-font-medium { font-weight: var(--font-weight-medium); }
+  &-font-semibold { font-weight: var(--font-weight-semibold); }
+  &-font-bold { font-weight: var(--font-weight-bold); }
+  
+  // Spacing utilities
+  &-p-0 { padding: var(--spacing-0); }
+  &-p-1 { padding: var(--spacing-1); }
+  &-p-2 { padding: var(--spacing-2); }
+  &-p-3 { padding: var(--spacing-3); }
+  &-p-4 { padding: var(--spacing-4); }
+  &-p-6 { padding: var(--spacing-6); }
+  &-p-8 { padding: var(--spacing-8); }
+  
+  &-m-0 { margin: var(--spacing-0); }
+  &-m-1 { margin: var(--spacing-1); }
+  &-m-2 { margin: var(--spacing-2); }
+  &-m-3 { margin: var(--spacing-3); }
+  &-m-4 { margin: var(--spacing-4); }
+  &-m-6 { margin: var(--spacing-6); }
+  &-m-8 { margin: var(--spacing-8); }
+  
+  // Shadow utilities
+  &-shadow-sm { box-shadow: var(--shadow-sm); }
+  &-shadow-md { box-shadow: var(--shadow-md); }
+  &-shadow-lg { box-shadow: var(--shadow-lg); }
+  &-shadow-xl { box-shadow: var(--shadow-xl); }
+  
+  // Border radius utilities
+  &-rounded-sm { border-radius: var(--radius-sm); }
+  &-rounded-md { border-radius: var(--radius-md); }
+  &-rounded-lg { border-radius: var(--radius-lg); }
+  &-rounded-full { border-radius: var(--radius-full); }
+}
