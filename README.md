@@ -1,174 +1,69 @@
-# Hassan Shahid - Developer Portfolio
+# Hassan Shahid — Portfolio
 
-A modern, responsive portfolio website showcasing 5 years of UI development experience with ReactJS, NextJS, Ruby on Rails, and Scrum Master expertise.
+A single-page portfolio for a Scrum Master / Agile Coach with a senior frontend
+background. Built with React 19, Vite and Tailwind CSS v4.
 
-## 🎨 Features
-
-- ✨ Modern, human-centered design
-- 🎭 Beautiful animations with Framer Motion
-- 📱 Fully responsive (mobile, tablet, desktop)
-- ♿ Accessible design
-- 🎯 Smooth scroll navigation
-- 💼 Skills showcase with soft skills
-- 📖 About section with career timeline
-- 📧 Contact form with validation
-- 🔗 Social links (LinkedIn, Upwork, GitHub)
-- 🎨 SCSS modules for styling
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js v22.15.0 or higher
-
-### Installation & Running
+## Quick start
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
+npm run dev      # http://localhost:5173
+npm run build    # production build to dist/
+npm run lint
 ```
 
-Visit **http://localhost:5173** to see your portfolio!
+## How it's put together
 
-## 📝 Customization Guide
+All copy lives in one place — [`src/data/resume.js`](src/data/resume.js). Edit
+that file to change anything on the page; the components are presentational and
+read from it.
 
-### 1. Update Your Information
+| Export | Drives |
+| --- | --- |
+| `profile` | Hero headline, contact links, footer, page metadata |
+| `stats` | The four-up stat band under the hero |
+| `navLinks` | Navbar, mobile sheet and footer links (also the scroll-spy targets) |
+| `sprintBoard` | The mock sprint board rendered in the hero visual |
+| `experience` | Experience timeline |
+| `projects` | Project cards — set `featured: true` to accent one |
+| `skillGroups` | Skills cards; `icon` maps to a lucide icon in `Skills.jsx` |
+| `softSkills`, `interests`, `achievements`, `education` | About section |
 
-**Hero Section** (`src/components/Hero/Hero.jsx`):
-- ✅ Name already updated to "Hassan Shahid"
-- Update the description if needed
+Section metadata (`<title>`, description, Open Graph) lives in
+[`index.html`](index.html) and is not read from `resume.js`.
 
-**About Section** (`src/components/About/About.jsx`):
-- ✅ Name and bio already set
-- Update timeline events with your actual experience
-- Update stats (years, projects, clients)
-
-**Contact Section** (`src/components/Contact/Contact.jsx`):
-- Update email: `hassan.shahid@example.com` → your email
-- Update phone: `+1 (234) 567-890` → your phone
-- Update social links:
-  - LinkedIn: `https://www.linkedin.com/in/hassan-shahid`
-  - Upwork: `https://www.upwork.com/freelancers/hassanshahid`
-  - GitHub: `https://github.com/hassanshahid`
-
-### 2. Add Your Profile Photo
-
-Replace `public/profile.jpg` with your professional photo:
-- Recommended size: 400x400px (square)
-- Format: JPG or PNG
-- Keep the filename as `profile.jpg`
-
-### 3. Customize Skills
-
-Edit `src/data/skills.jsx`:
-- ✅ Soft skills already added
-- Update experience years
-- Add/remove skills as needed
-
-### 4. Customize Colors
-
-Edit `src/styles/variables.scss` to change the color scheme:
-```scss
-$color-primary: #2D3748;    // Main dark color
-$color-secondary: #4A90E2;  // Accent blue
-$color-accent: #F59E0B;     // Warm amber
-```
-
-## 📂 Project Structure
+### Components
 
 ```
-portfolio/
-├── src/
-│   ├── components/
-│   │   ├── Hero/           ✅ Complete
-│   │   ├── Navigation/     ✅ Complete
-│   │   ├── Skills/         ✅ Complete (with soft skills)
-│   │   ├── About/          ✅ Complete (with timeline)
-│   │   └── Contact/        ✅ Complete (with form + social links)
-│   ├── hooks/              ✅ Custom React hooks
-│   ├── data/               ✅ Skills and projects data
-│   ├── styles/             ✅ SCSS variables and global styles
-│   └── utils/              ✅ Validation utilities
-└── public/
-    └── profile.jpg         ⚠️ Replace with your photo
+src/
+├── App.jsx                     section order
+├── index.css                   Tailwind theme: ink/brand/accent scales, reveal, backdrops
+├── data/resume.js              all content
+└── components/
+    ├── Reveal.jsx              IntersectionObserver fade-in wrapper (`delay` staggers siblings)
+    ├── SectionHeading.jsx      eyebrow + title + description
+    ├── Navbar.jsx              scroll-spy nav, mobile sheet
+    ├── Hero.jsx  About.jsx  Experience.jsx  Projects.jsx  Skills.jsx  Contact.jsx  Footer.jsx
+    └── icons/LinkedInIcon.jsx  lucide dropped brand icons, so this ships inline
 ```
 
-## ✅ What's Included
+### Design tokens
 
-- [x] Navigation with mobile menu
-- [x] Hero section with your name (Hassan Shahid)
-- [x] Skills section with categories + soft skills
-- [x] About section with bio and timeline
-- [x] Contact form with validation
-- [x] Social links (LinkedIn, Upwork, GitHub, Email)
-- [x] Responsive design
-- [x] Smooth animations
-- [x] SCSS styling
+Colours are defined as Tailwind v4 `@theme` variables in `src/index.css`:
 
-## 🎯 Next Steps
+- `ink-50 … ink-900` — neutral slate ramp (text, borders, surfaces)
+- `brand-50 … brand-700` — indigo, used for accents and the gradient headline
+- `accent-500 / accent-600` — teal, used for "live" states and check marks
 
-1. **Upgrade Node.js** to v22.15.0:
-   ```bash
-   nvm install 22.15.0
-   nvm use 22.15.0
-   ```
+Change those values and the whole page follows.
 
-2. **Add your photo** to `public/profile.jpg`
+## Notes
 
-3. **Update contact info** in `Contact.jsx`
+- Fonts (Inter, Plus Jakarta Sans) load from Google Fonts in `index.html`.
+- Animations respect `prefers-reduced-motion`.
+- `public/profile.jpg` is unused by the current design — the hero uses the
+  sprint-board panel instead of a photo.
 
-4. **Update social links** with your actual profiles
+## Tech stack
 
-5. **Customize timeline** in `About.jsx` with your experience
-
-6. **Add projects** (optional - section placeholder is ready)
-
-## 🛠️ Tech Stack
-
-- React 19
-- Vite 5
-- SCSS Modules
-- Framer Motion
-- React Hook Form
-- React Icons
-
-## 📧 Contact Form
-
-The contact form includes:
-- Name validation (min 2 characters)
-- Email validation (proper format)
-- Message validation (min 10 characters)
-- Success/error feedback
-- Loading state
-
-**Note**: Currently logs to console. To make it functional, integrate with:
-- EmailJS
-- Formspree
-- Your own backend API
-
-## 🎨 Design Philosophy
-
-This portfolio follows a human-centered design approach:
-- Thoughtful animations (not generic)
-- Custom color palette
-- Intentional spacing
-- Personality-driven content
-- Professional yet approachable
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 📄 License
-
-MIT License - Free to use for your portfolio!
-
----
-
-Built with ❤️ by Hassan Shahid using React, Vite, and modern web technologies.
+React 19 · Vite 5 · Tailwind CSS v4 · lucide-react
