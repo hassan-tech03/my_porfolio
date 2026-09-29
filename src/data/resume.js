@@ -2,154 +2,110 @@ export const profile = {
   name: "Hassan Shahid",
   role: "Scrum Master & Agile Coach",
   tagline:
-    "I keep cross-functional teams shipping on time sprint ceremonies, unblocked backlogs and a frontend engineer's eye for what's actually hard.",
+    "I keep cross-functional teams shipping on time — sprint ceremonies, unblocked backlogs and a frontend engineer's eye for what's actually hard.",
   location: "Lahore, Pakistan",
   email: "hassan.shahid031998@gmail.com",
   phone: "+92 306 9167328",
   phoneHref: "+923069167328",
+  resume: "/Hassan_Shahid_Resume.pdf",
   linkedin: "https://www.linkedin.com/in/hassan-shahid3006751b1",
+  availability: "Open to remote · overlap with US / UK / EU hours",
   summary:
-    "Results-driven Scrum Master with 4+ years of experience leading agile teams, facilitating Scrum ceremonies, and driving on-time delivery across SaaS, e-commerce, EdTech and reporting domains. Proven ability to remove impediments, coach teams on agile best practices, manage 100+ user story backlogs and maintain 85%+ sprint velocity. Uniquely backed by a strong technical background in frontend development enabling deeper collaboration with engineering teams, more accurate story estimation, and faster identification of technical blockers than a typical Scrum Master.",
+    "Scrum Master with a strong frontend engineering background, applying the Scrum framework and servant leadership to lead cross-functional teams of 8–10 across SaaS, e-commerce, EdTech and reporting products. Facilitates the full agile lifecycle — sprint planning, backlog grooming, retrospectives and stakeholder demos — while maintaining 85%+ sprint velocity. Technical foundation enables credible engagement in estimation, story refinement and engineering discussions, driving faster blocker resolution and stronger team self-organisation.",
 };
 
 export const stats = [
-  { value: "4+", label: "Years in Agile" },
-  { value: "85%+", label: "Sprint velocity" },
-  { value: "100+", label: "Stories groomed" },
-  { value: "12+", label: "Products delivered" },
+  { value: "5+", label: "Years in software delivery", icon: "clock" },
+  { value: "85%+", label: "Sprint velocity", icon: "gauge" },
+  { value: "100+", label: "Stories groomed", icon: "list" },
+  { value: "40%", label: "Better on-time delivery", icon: "trend" },
 ];
 
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
+  { href: "#tools", label: "Tools" },
+  { href: "#projects", label: "Projects" },
+  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
 /**
- * Illustrative sprint board rendered in the hero — a stylised issue tracker,
- * not a live feed. Issue keys map to the projects below; `type` drives the
- * card's issue-type icon and `priority` its arrow.
+ * Suites for the hero's "Scrum runner" terminal. Every assertion restates a
+ * figure from the experience section below — nothing here is live data.
  */
-export const board = {
-  sprint: 42,
-  committed: 40,
-  completed: 34,
-  daysLeft: 2,
-  columns: [
-    {
-      name: "To do",
-      items: [
-        {
-          key: "GP-214",
-          summary: "Guide availability sync for peak season",
-          type: "story",
-          points: 5,
-          assignee: "AK",
-          priority: "medium",
-        },
-        {
-          key: "UGC-88",
-          summary: "Bulk CSV import for merchant catalogue",
-          type: "task",
-          points: 3,
-          assignee: "RT",
-          priority: "low",
-        },
-      ],
-    },
-    {
-      name: "In progress",
-      items: [
-        {
-          key: "MM-431",
-          summary: "Checkout flow — split payment support",
-          type: "story",
-          points: 8,
-          assignee: "HS",
-          priority: "high",
-        },
-        {
-          key: "IR-112",
-          summary: "Dashboard responsive pass at 768px",
-          type: "bug",
-          points: 3,
-          assignee: "SB",
-          priority: "high",
-        },
-      ],
-    },
-    {
-      name: "In review",
-      items: [
-        {
-          key: "DWS-67",
-          summary: "Insurance claim tracking module",
-          type: "story",
-          points: 5,
-          assignee: "AK",
-          priority: "medium",
-        },
-      ],
-    },
-    {
-      name: "Done",
-      items: [
-        {
-          key: "GP-201",
-          summary: "SSO login flow shipped",
-          type: "story",
-          points: 5,
-          assignee: "HS",
-          priority: "medium",
-          done: true,
-        },
-        {
-          key: "IR-98",
-          summary: "Report builder — export to PDF",
-          type: "task",
-          points: 8,
-          assignee: "RT",
-          priority: "low",
-          done: true,
-        },
-      ],
-      more: 4,
-    },
-  ],
-};
+export const runnerSuites = [
+  {
+    id: "planning",
+    label: "Run Sprint Planning",
+    lines: [
+      "backlog groomed .............. 100+ user stories",
+      "sprint readiness ............. 2-week cycles",
+      "team capacity ................ 8–10 members",
+      "mid-sprint scope creep ....... -30%",
+    ],
+  },
+  {
+    id: "delivery",
+    label: "Run Delivery Check",
+    lines: [
+      "sprint velocity .............. 85%+ story points",
+      "on-time delivery ............. +40% in 6 months",
+      "client engagements ........... 3+ in parallel",
+      "stakeholder demos ............ bi-weekly",
+    ],
+  },
+  {
+    id: "retro",
+    label: "Run Retrospective",
+    lines: [
+      "blockers resolved ............ 15+ per quarter",
+      "resolution time .............. 5 days → 2 days",
+      "retro actions tracked ........ every quarter",
+      "CI/CD + test automation ...... adopted",
+    ],
+  },
+];
+
+export const checklist = [
+  "Backlogs groomed to a 2-week sprint-ready state",
+  "Blockers surfaced early and cleared fast",
+  "Stories with clear acceptance criteria",
+  "Demos every two weeks, roadmap always visible",
+  "Async-friendly ceremonies across time zones",
+];
 
 export const experience = [
   {
     role: "Scrum Master",
     company: "iSOFTSTUDIOS",
     location: "Lahore, Pakistan",
-    period: "Aug 2021 – Present",
+    period: "Jan 2024 – Present",
     current: true,
     points: [
-      "Sprint planning & delivery: facilitated planning, daily standups, reviews and retrospectives for a cross-functional team of 8–10, maintaining an average sprint velocity of 85%+ story point completion.",
-      "Backlog management: partnered with product owners to groom and prioritise backlogs of 100+ user stories, ensuring 2-week sprint readiness and reducing scope creep by 30%.",
-      "Impediment removal: identified and resolved 15+ cross-team blockers per quarter, cutting average issue resolution time from 5 days to 2.",
+      "Sprint planning & delivery: facilitate all Scrum ceremonies — planning, daily standups, reviews and retrospectives — for a cross-functional team of 8–10, maintaining an average sprint velocity of 85%+ story point completion.",
+      "Backlog management: partner with product owners to groom and prioritise backlogs of 100+ user stories, ensuring 2-week sprint readiness and reducing scope creep by 30%.",
+      "Impediment removal: identify and resolve 15+ cross-team blockers per quarter, cutting average issue resolution time from 5 days to 2.",
       "Agile adoption: led the team's transition from an ad-hoc workflow to Scrum, improving on-time delivery rate by 40% within the first 6 months.",
-      "Stakeholder communication: served as primary liaison between the development team and business stakeholders, running bi-weekly demos and maintaining transparent roadmaps.",
-      "Continuous improvement: introduced retrospective action tracking that produced 3 measurable process improvements per quarter, including automated testing integration and CI/CD pipeline setup.",
+      "Stakeholder communication: primary liaison between the development team and business stakeholders, running bi-weekly demos and maintaining transparent roadmaps.",
+      "Continuous improvement: introduced retrospective action tracking that produces measurable process improvements each quarter, including automated testing integration and CI/CD pipeline setup.",
+      "Client-facing delivery: manage 3+ services-based client engagements alongside internal product work, aligning sprint goals with evolving requirements and handling scope negotiations without disrupting the core team's rhythm.",
+      "Async & distributed facilitation: run ceremonies and stakeholder updates across time zones using written standups, recorded demos and documented retrospective outcomes, keeping delivery on track without full-team overlap.",
     ],
-    note: "Coached team members on Scrum values, self-organisation and agile best practices contributing to a 25% increase in team satisfaction scores over 12 months.",
   },
   {
     role: "Senior Frontend Developer",
     company: "iSOFTSTUDIOS",
     location: "Lahore, Pakistan",
-    period: "Aug 2021 – Present",
-    current: true,
+    period: "Aug 2021 – Jan 2024",
     points: [
       "Team leadership: mentored 3–4 junior developers through weekly code reviews and pair programming, reducing average PR review cycles from 3 rounds to 1.5.",
       "Cross-functional collaboration: worked with designers, backend engineers and product owners across 6+ projects to align timelines and translate requirements into actionable tasks.",
       "Delivery & quality: architected and shipped production-grade frontend features across SaaS, e-commerce and reporting products — maintaining zero critical post-launch bugs through structured QA.",
       "Process improvement: introduced a shared library of 50+ reusable React.js components, cutting new feature development time by ~35% and reducing cross-team inconsistencies.",
     ],
-    note: "Held concurrently with the Scrum Master role the technical depth is what makes the estimation and blocker triage sharper.",
+    note: "The engineering years are what make my estimation and blocker triage sharper as a Scrum Master.",
     stack: ["React.js", "Next.js", "Vue.js", "TypeScript", "Node.js", "AWS", "CI/CD"],
   },
 ];
@@ -167,6 +123,7 @@ export const experience = [
 export const projects = [
   {
     title: "OneStream Live",
+    category: "SaaS",
     kind: "Live Streaming",
     featured: true,
     href: "https://onestream.live/",
@@ -193,6 +150,7 @@ export const projects = [
   },
   {
     title: "The Storefront",
+    category: "Marketplace",
     kind: "PropTech & Retail",
     featured: true,
     href: "https://www.thestorefront.com/",
@@ -222,6 +180,7 @@ export const projects = [
   },
   {
     title: "Loosid",
+    category: "Health",
     kind: "Health & Lifestyle",
     href: "https://loosidapp.com/",
     description:
@@ -242,6 +201,7 @@ export const projects = [
   },
   {
     title: "FeedBear",
+    category: "SaaS",
     kind: "SaaS Platform",
     href: "https://www.feedbear.com/",
     description:
@@ -264,6 +224,7 @@ export const projects = [
   },
   {
     title: "iReport",
+    category: "SaaS",
     kind: "Public Safety & Reporting",
     href: "https://www.ireport.us/",
     description:
@@ -287,6 +248,7 @@ export const projects = [
   },
   {
     title: "Parkpnp",
+    category: "Marketplace",
     kind: "PropTech",
     href: "https://parkpnp.com/ie/",
     description:
@@ -309,6 +271,7 @@ export const projects = [
   },
   {
     title: "Mastermind",
+    category: "EdTech",
     kind: "Education & Coaching",
     href: "https://mastermind.com/",
     description:
@@ -332,6 +295,7 @@ export const projects = [
   },
   {
     title: "GeniusU",
+    category: "EdTech",
     kind: "EdTech",
     href: "https://www.geniusu.com/",
     description:
@@ -354,6 +318,7 @@ export const projects = [
   },
   {
     title: "GuidePointer",
+    category: "Marketplace",
     kind: "Travel & Mapping",
     href: "https://guidepointer.com/",
     description:
@@ -375,6 +340,7 @@ export const projects = [
   },
   {
     title: "OurOffice",
+    category: "SaaS",
     kind: "HR & Workforce",
     href: "https://www.ouroffice.io/",
     description:
@@ -398,6 +364,7 @@ export const projects = [
   },
   {
     title: "FitYou",
+    category: "Health",
     kind: "Health & Fitness",
     // The iSOFTSTUDIOS portfolio links https://fityou.sa/, but that domain no
     // longer resolves — left unlinked rather than pointing at a dead host.
@@ -423,6 +390,7 @@ export const projects = [
   },
   {
     title: "NyxionAI",
+    category: "SaaS",
     kind: "AI SaaS",
     href: "https://www.nyxion.ai/",
     description:
@@ -443,6 +411,7 @@ export const projects = [
   },
   {
     title: "HuureenHut",
+    category: "Marketplace",
     kind: "Marketplace",
     href: "https://guides-and-hides-staging-105205e1adc6.herokuapp.com/",
     description:
@@ -482,6 +451,7 @@ export const skillGroups = [
       "JIRA",
       "Velocity Tracking",
       "Story Point Estimation",
+      "Kanban",
     ],
   },
   {
@@ -494,6 +464,7 @@ export const skillGroups = [
       "Self-Organisation",
       "Scrum Values",
       "Mentoring",
+      "People Management",
     ],
   },
   {
@@ -504,6 +475,7 @@ export const skillGroups = [
       "Bi-weekly Demos",
       "Risk Management",
       "Expectation Setting",
+      "Scope Negotiation",
     ],
   },
   {
@@ -528,7 +500,7 @@ export const skillGroups = [
   {
     title: "Tools",
     icon: "wrench",
-    skills: ["JIRA", "Git", "Figma", "VS Code", "Trello"],
+    skills: ["JIRA", "Confluence", "Trello", "Git", "Figma", "VS Code", "Slack", "Zoom", "Miro", "Notion", "Loom"],
   },
 ];
 
@@ -573,3 +545,20 @@ export const education = {
   period: "2016 – 2020",
   location: "Lahore, Pakistan",
 };
+
+export const projectFilters = ["All", "SaaS", "Marketplace", "EdTech", "Health"];
+
+export const tools = [
+  { name: "JIRA", use: "Backlog & sprints", icon: "kanban" },
+  { name: "Confluence", use: "Documentation", icon: "book" },
+  { name: "Trello", use: "Boards", icon: "columns" },
+  { name: "Figma", use: "Design review", icon: "figma" },
+  { name: "Git & GitHub", use: "Version control", icon: "git" },
+  { name: "Slack", use: "Team chat", icon: "chat" },
+  { name: "Zoom / Meet", use: "Ceremonies", icon: "video" },
+  { name: "Miro", use: "Retros & mapping", icon: "board" },
+  { name: "Notion", use: "Async docs", icon: "note" },
+  { name: "Loom", use: "Recorded demos", icon: "record" },
+  { name: "VS Code", use: "Code & reviews", icon: "code" },
+  { name: "CI/CD", use: "Release pipeline", icon: "pipeline" },
+];

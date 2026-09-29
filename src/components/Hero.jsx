@@ -1,124 +1,154 @@
-import { ArrowRight, Mail, MapPin } from 'lucide-react';
+import { Clock, Download, Gauge, ListChecks, Mail, MapPin, TrendingUp } from 'lucide-react';
 import Reveal from './Reveal';
-import SprintBoard from './SprintBoard';
+import ScrumRunner from './ScrumRunner';
 import LinkedInIcon from './icons/LinkedInIcon';
 import { profile, stats } from '../data/resume';
 
+const statIcons = { clock: Clock, gauge: Gauge, list: ListChecks, trend: TrendingUp };
+
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20">
+    <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="dot-backdrop absolute inset-0" />
-        <div className="absolute -left-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-brand-200/45 blur-[130px]" />
-        <div className="absolute right-0 top-40 h-72 w-72 rounded-full bg-accent-500/10 blur-[110px]" />
+        <div className="grid-backdrop absolute inset-0" />
+        <div
+          className="absolute -left-40 top-0 h-[30rem] w-[30rem] rounded-full blur-[140px]"
+          style={{ background: 'var(--glow-a)' }}
+        />
+        <div
+          className="absolute -right-32 top-24 h-[30rem] w-[30rem] rounded-full blur-[140px]"
+          style={{ background: 'var(--glow-b)' }}
+        />
       </div>
 
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        {/* Identity row — name stays small so the statement can carry the space */}
-        <Reveal>
-          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 border-b border-ink-200/80 pb-6">
-            <div className="flex items-center gap-3.5">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ink-900 font-display text-sm font-bold text-white">
-                HS
-              </span>
-              <div>
-                <p className="font-display text-base font-bold tracking-tight text-ink-900">
-                  {profile.name}
-                </p>
-                <p className="mt-0.5 text-sm text-ink-500">
-                  {profile.role}
-                  <span className="mx-1.5 text-ink-300">·</span>
-                  <span className="inline-flex items-center gap-1 whitespace-nowrap">
-                    <MapPin size={13} className="text-ink-400" />
-                    {profile.location}
-                  </span>
-                </p>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.25fr_1fr]">
+          <div>
+            <Reveal>
+              <p className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3.5 py-1.5 text-xs font-semibold text-a">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-a opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-a" />
+                </span>
+                {profile.availability}
+              </p>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <h1 className="mt-6 font-display text-[2.5rem] font-extrabold leading-[1.08] tracking-tight text-fg sm:text-5xl lg:text-[3.4rem]">
+                Hi, I&apos;m
+                <span className="text-gradient block">{profile.name},</span>
+                Scrum Master
+              </h1>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <p className="mt-4 font-display text-lg font-semibold text-fg-2 sm:text-xl">
+                {profile.role}
+              </p>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-fg-3 sm:text-lg">
+                {profile.tagline}
+              </p>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="focus-ring group inline-flex items-center gap-2 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-b/25 transition-all hover:shadow-xl hover:shadow-b/35"
+                >
+                  <Mail size={16} />
+                  Contact me
+                </a>
+                <a
+                  href={profile.resume}
+                  download="Hassan_Shahid_Resume.pdf"
+                  className="focus-ring inline-flex items-center gap-2 rounded-xl border border-line bg-panel px-5 py-3 text-sm font-semibold text-fg transition-colors hover:bg-chip"
+                >
+                  <Download size={16} />
+                  Download resume
+                </a>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                  className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-panel text-fg-2 transition-colors hover:text-a"
+                >
+                  <LinkedInIcon size={17} />
+                </a>
               </div>
+              <p className="mt-6 inline-flex items-center gap-2 text-sm text-fg-3">
+                <MapPin size={15} className="text-a" />
+                {profile.location}
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={160}>
+            <div className="card mx-auto w-full max-w-sm p-8 text-center shadow-2xl shadow-black/20">
+              <div className="relative mx-auto h-48 w-48">
+                <span
+                  aria-hidden
+                  className="animate-spin-slow absolute -inset-2 rounded-full border-2 border-dashed border-b/70"
+                />
+                <div className="h-48 w-48 overflow-hidden rounded-full">
+                  <img
+                    src="/profile.jpg"
+                    alt="Portrait of Hassan Shahid"
+                    width="192"
+                    height="192"
+                    className="h-full w-full origin-[50%_38%] scale-[2.3] object-cover object-top"
+                  />
+                </div>
+              </div>
+              <p className="mt-6 font-display text-lg font-bold text-fg">{profile.name}</p>
+              <p className="mt-1 text-sm font-medium text-a">{profile.role}</p>
             </div>
+          </Reveal>
+        </div>
 
-            <p className="inline-flex items-center gap-2 text-sm font-medium text-ink-600">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-500 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-500" />
-              </span>
-              Open to Scrum Master &amp; delivery roles
-            </p>
-          </div>
-        </Reveal>
-
-        {/* Statement */}
-        <Reveal delay={80}>
-          <h1 className="mt-12 max-w-3xl font-display text-[2.6rem] font-extrabold leading-[1.06] tracking-tight text-ink-900 sm:text-6xl lg:text-[4.25rem]">
-            Teams that ship
-            <br />
-            <span className="text-brand-600">on cadence</span>
-          </h1>
-        </Reveal>
-
-        <Reveal delay={140}>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-500">
-            {profile.tagline}
-          </p>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <div className="mt-9 flex items-center gap-2.5 sm:gap-3">
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-ink-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-ink-900/10 transition-all hover:bg-brand-600 hover:shadow-xl hover:shadow-brand-600/20 sm:px-6"
-            >
-              View my work
-              <ArrowRight
-                size={16}
-                className="transition-transform group-hover:translate-x-0.5"
-              />
-            </a>
-            <a
-              href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-ink-200 bg-white px-5 py-3 text-sm font-semibold text-ink-800 shadow-sm transition-all hover:border-ink-300 hover:bg-ink-50 sm:px-6"
-            >
-              <Mail size={16} />
-              <span className="hidden xs:inline">Get in touch</span>
-              <span className="xs:hidden">Contact</span>
-            </a>
-            <a
-              href={profile.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink-200 bg-white text-ink-500 shadow-sm transition-all hover:border-brand-300 hover:bg-brand-50 hover:text-brand-600"
-            >
-              <LinkedInIcon size={17} />
-            </a>
-          </div>
-        </Reveal>
-
-        {/* Sprint board */}
-        <Reveal delay={260}>
-          <div className="mt-16">
-            <SprintBoard />
-          </div>
-        </Reveal>
-
-        {/* Stats — inline rule-separated row rather than a boxed grid */}
         <Reveal delay={120}>
-          <dl className="mt-14 grid grid-cols-2 gap-y-8 sm:grid-cols-4">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`flex flex-col-reverse ${
-                  i % 2 === 1 ? 'pl-6' : ''
-                } sm:pl-0 ${i > 0 ? 'sm:border-l sm:border-ink-200 sm:pl-6' : ''}`}
-              >
-                <dt className="mt-1.5 text-sm text-ink-500">{stat.label}</dt>
-                <dd className="font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
+          <dl className="card mt-16 grid grid-cols-2 gap-x-6 gap-y-8 p-6 sm:p-8 lg:grid-cols-4">
+            {stats.map((stat) => {
+              const Icon = statIcons[stat.icon] ?? Clock;
+              return (
+                <div key={stat.label} className="flex items-center gap-4">
+                  <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-md shadow-b/20 xs:inline-flex">
+                    <Icon size={20} />
+                  </span>
+                  <div className="flex flex-col-reverse">
+                    <dt className="text-sm text-fg-3">{stat.label}</dt>
+                    <dd className="font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl">
+                      {stat.value}
+                    </dd>
+                  </div>
+                </div>
+              );
+            })}
           </dl>
         </Reveal>
       </div>
+
+      <div className="mx-auto mt-20 max-w-6xl px-5 sm:px-8">
+        <SectionRunnerIntro />
+        <Reveal delay={80} className="mt-8">
+          <ScrumRunner />
+        </Reveal>
+      </div>
     </section>
+  );
+}
+
+function SectionRunnerIntro() {
+  return (
+    <Reveal className="text-center">
+      <h2 className="font-display text-2xl font-bold tracking-tight text-fg sm:text-3xl">
+        Interactive Scrum Runner
+      </h2>
+      <p className="mt-2 text-sm text-fg-3 sm:text-base">
+        Run a suite to check the numbers behind my delivery record.
+      </p>
+    </Reveal>
   );
 }

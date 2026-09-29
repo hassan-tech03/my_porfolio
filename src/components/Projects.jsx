@@ -1,41 +1,48 @@
+import { useState } from 'react';
 import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
-import { projects } from '../data/resume';
+import { projectFilters, projects } from '../data/resume';
 
 export default function Projects() {
+  const [filter, setFilter] = useState('All');
+  const shown = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
+
   return (
-    <section
-      id="projects"
-      className="scroll-mt-24 border-t border-ink-100 bg-ink-50/50 py-20 sm:py-28"
-    >
+    <section id="projects" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Projects"
-          title="Selected work"
-          description="Products delivered with the iSOFTSTUDIOS team streaming, marketplaces, EdTech, SaaS and healthcare plus client work I've led as Scrum Master and built the frontend for."
+          title="Projects"
+          description="Products delivered with the iSOFTSTUDIOS team — streaming, marketplaces, EdTech, SaaS and health — that I've led as Scrum Master or built the frontend for."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
-            <Reveal
-              as="article"
-              key={project.title}
-              delay={(i % 3) * 90}
-              className={`group relative flex flex-col rounded-2xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-ink-900/5 ${
-                project.featured
-                  ? 'border-brand-200 md:col-span-2 lg:col-span-1'
-                  : 'border-ink-200 hover:border-brand-200'
+        <div
+          role="group"
+          aria-label="Filter projects"
+          className="mt-10 flex flex-wrap justify-center gap-2"
+        >
+          {projectFilters.map((name) => (
+            <button
+              key={name}
+              type="button"
+              aria-pressed={filter === name}
+              onClick={() => setFilter(name)}
+              className={`focus-ring rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
+                filter === name
+                  ? 'border-transparent bg-gradient-brand text-white shadow-md shadow-b/25'
+                  : 'border-line bg-panel text-fg-2 hover:text-fg'
               }`}
             >
+              {name}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {shown.map((project) => (
+            <article key={project.title} className="card card-hover group flex flex-col p-7">
               <div className="flex items-start justify-between gap-4">
-                <span
-                  className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${
-                    project.featured
-                      ? 'bg-brand-50 text-brand-700'
-                      : 'bg-ink-100 text-ink-500'
-                  }`}
-                >
+                <span className="rounded-full border border-line bg-chip px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-a">
                   {project.kind}
                 </span>
                 {project.href && (
@@ -44,24 +51,22 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Open ${project.title}`}
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-ink-200 text-ink-500 transition-all group-hover:border-brand-300 group-hover:bg-brand-50 group-hover:text-brand-600"
+                    className="focus-ring inline-flex h-8 w-8 items-center justify-center rounded-full border border-line text-fg-3 transition-colors group-hover:text-a"
                   >
                     <ArrowUpRight size={15} />
                   </a>
                 )}
               </div>
 
-              <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-ink-900">
+              <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-fg">
                 {project.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-500">
-                {project.description}
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-fg-3">{project.description}</p>
 
               <ul className="mt-5 space-y-2">
                 {project.points.map((point) => (
-                  <li key={point} className="flex gap-2.5 text-sm leading-relaxed text-ink-600">
-                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-accent-500" />
+                  <li key={point} className="flex gap-2.5 text-sm leading-relaxed text-fg-2">
+                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-a" />
                     {point}
                   </li>
                 ))}
@@ -71,13 +76,13 @@ export default function Projects() {
                 {project.tags.map((tag) => (
                   <li
                     key={tag}
-                    className="rounded-md bg-ink-50 px-2 py-1 text-[11px] font-medium text-ink-500 ring-1 ring-inset ring-ink-200/70"
+                    className="rounded-md border border-line bg-chip px-2 py-1 text-[11px] font-medium text-fg-3"
                   >
                     {tag}
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </article>
           ))}
         </div>
       </div>
