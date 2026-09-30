@@ -79,3 +79,4 @@ The form posts to [Web3Forms](https://web3forms.com). Copy `.env.example` to
 `.env` and set `VITE_WEB3FORMS_ACCESS_KEY`. In production add the same variable
 in the Vercel project settings (Settings → Environment Variables) and redeploy,
 since Vite inlines it at build time.
+
