@@ -2,7 +2,7 @@ export const profile = {
   name: "Hassan Shahid",
   role: "Scrum Master & Agile Coach",
   tagline:
-    "I keep cross-functional teams shipping on time — sprint ceremonies, unblocked backlogs and a frontend engineer's eye for what's actually hard.",
+    "I keep cross-functional teams shipping on time. I run the sprint ceremonies, keep backlogs unblocked and bring a frontend engineer's eye for what's actually hard.",
   location: "Lahore, Pakistan",
   email: "hassan.shahid031998@gmail.com",
   phone: "+92 306 9167328",
@@ -11,7 +11,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/hassan-shahid3006751b1",
   availability: "Open to remote · overlap with US / UK / EU hours",
   summary:
-    "Scrum Master with a strong frontend engineering background, applying the Scrum framework and servant leadership to lead cross-functional teams of 8–10 across SaaS, e-commerce, EdTech and reporting products. Facilitates the full agile lifecycle — sprint planning, backlog grooming, retrospectives and stakeholder demos — while maintaining 85%+ sprint velocity. Technical foundation enables credible engagement in estimation, story refinement and engineering discussions, driving faster blocker resolution and stronger team self-organisation.",
+    "Scrum Master with a strong frontend engineering background. I use the Scrum framework and servant leadership to lead cross-functional teams of 8–10 across SaaS, e-commerce, EdTech and reporting products. I run the full agile lifecycle, from sprint planning and backlog grooming to retrospectives and stakeholder demos, and keep sprint velocity at 85%+. My technical background lets me take part properly in estimation, story refinement and engineering discussions, which means blockers get resolved faster and teams organise themselves better.",
 };
 
 export const stats = [
@@ -84,7 +84,7 @@ export const experience = [
     period: "Jan 2024 – Present",
     current: true,
     points: [
-      "Sprint planning & delivery: facilitate all Scrum ceremonies — planning, daily standups, reviews and retrospectives — for a cross-functional team of 8–10, maintaining an average sprint velocity of 85%+ story point completion.",
+      "Sprint planning & delivery: facilitate all Scrum ceremonies (planning, daily standups, reviews and retrospectives) for a cross-functional team of 8–10, maintaining an average sprint velocity of 85%+ story point completion.",
       "Backlog management: partner with product owners to groom and prioritise backlogs of 100+ user stories, ensuring 2-week sprint readiness and reducing scope creep by 30%.",
       "Impediment removal: identify and resolve 15+ cross-team blockers per quarter, cutting average issue resolution time from 5 days to 2.",
       "Agile adoption: led the team's transition from an ad-hoc workflow to Scrum, improving on-time delivery rate by 40% within the first 6 months.",
@@ -102,7 +102,7 @@ export const experience = [
     points: [
       "Team leadership: mentored 3–4 junior developers through weekly code reviews and pair programming, reducing average PR review cycles from 3 rounds to 1.5.",
       "Cross-functional collaboration: worked with designers, backend engineers and product owners across 6+ projects to align timelines and translate requirements into actionable tasks.",
-      "Delivery & quality: architected and shipped production-grade frontend features across SaaS, e-commerce and reporting products — maintaining zero critical post-launch bugs through structured QA.",
+      "Delivery & quality: architected and shipped production-grade frontend features across SaaS, e-commerce and reporting products, with zero critical post-launch bugs through structured QA.",
       "Process improvement: introduced a shared library of 50+ reusable React.js components, cutting new feature development time by ~35% and reducing cross-team inconsistencies.",
     ],
     note: "The engineering years are what make my estimation and blocker triage sharper as a Scrum Master.",

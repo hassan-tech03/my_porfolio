@@ -37,7 +37,7 @@ export default function Tools() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           title="Tools & technologies"
-          description="What I use to plan, track and collaborate — including across time zones."
+          description="What I use to plan, track and work with teams, including across time zones."
         />
 
         <ul className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">

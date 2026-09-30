@@ -78,20 +78,22 @@ export default function Contact() {
           <ContactForm />
         </Reveal>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {channels.map((c, i) => {
             const inner = (
-              <>
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line bg-chip text-a">
-                  <c.icon size={17} />
+              <div className="flex items-center gap-4">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-chip text-a">
+                  <c.icon size={18} />
                 </span>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-fg-3">
-                  {c.label}
-                </p>
-                <p className="mt-1 break-words text-sm font-medium text-fg">{c.value}</p>
-              </>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-fg-3">
+                    {c.label}
+                  </p>
+                  <p className="mt-1 truncate text-sm font-medium text-fg">{c.value}</p>
+                </div>
+              </div>
             );
-            const cls = 'card card-hover block p-6';
+            const cls = 'card card-hover block h-full p-5';
             return (
               <Reveal key={c.label} delay={i * 70}>
                 {c.href ? (

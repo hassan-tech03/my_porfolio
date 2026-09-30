@@ -13,7 +13,7 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           title="Projects"
-          description="Products delivered with the iSOFTSTUDIOS team — streaming, marketplaces, EdTech, SaaS and health — that I've led as Scrum Master or built the frontend for."
+          description="Products from my time at iSOFTSTUDIOS, across streaming, marketplaces, EdTech, SaaS and health. I either ran the sprints as Scrum Master or built the frontend, and on some I did both."
         />
 
         <div

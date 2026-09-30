@@ -9,7 +9,7 @@ export default function Experience() {
       <div className="mx-auto max-w-4xl px-5 sm:px-8">
         <SectionHeading
           title="Work experience"
-          description="Five years at one studio — from senior frontend developer to Scrum Master — so the agile process stays close enough to the code to keep estimates honest."
+          description="Five years at one studio. I started as a senior frontend developer and moved into Scrum Master, so I still know what a ticket really costs."
         />
 
         <ol className="relative mt-14 space-y-8 border-l border-line pl-6 sm:pl-10">

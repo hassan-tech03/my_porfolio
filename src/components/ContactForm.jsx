@@ -56,7 +56,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="card p-6 sm:p-8">
+    <form id="contact-form" onSubmit={onSubmit} className="card scroll-mt-24 p-6 sm:p-8">
       <h3 className="font-display text-lg font-bold text-fg">Send me a message</h3>
       <p className="mt-1 text-sm text-fg-3">I usually reply within a day.</p>
 
@@ -123,7 +123,7 @@ export default function ContactForm() {
           {status === 'sent' && (
             <span className="inline-flex items-center gap-1.5 font-medium text-a">
               <CheckCircle2 size={16} />
-              Thanks — your message is on its way.
+              Thanks, your message has been sent.
             </span>
           )}
           {status === 'error' && (

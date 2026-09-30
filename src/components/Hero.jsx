@@ -54,7 +54,7 @@ export default function Hero() {
             <Reveal delay={200}>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
-                  href={`mailto:${profile.email}`}
+                  href="#contact-form"
                   className="focus-ring group inline-flex items-center gap-2 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-b/25 transition-all hover:shadow-xl hover:shadow-b/35"
                 >
                   <Mail size={16} />

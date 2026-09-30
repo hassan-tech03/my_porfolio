@@ -1,4 +1,4 @@
-# Hassan Shahid — Portfolio
+# Hassan Shahid Portfolio
 
 A single-page portfolio for a Scrum Master / Agile Coach with a senior frontend
 background. Built with React 19, Vite and Tailwind CSS v4.
@@ -14,7 +14,7 @@ npm run lint
 
 ## How it's put together
 
-All copy lives in one place — [`src/data/resume.js`](src/data/resume.js). Edit
+All copy lives in one place: [`src/data/resume.js`](src/data/resume.js). Edit
 that file to change anything on the page; the components are presentational and
 read from it.
 
@@ -52,11 +52,12 @@ src/
 
 ### Design tokens
 
-Colours are defined as Tailwind v4 `@theme` variables in `src/index.css`:
+Colours are CSS variables in `src/index.css`, set once for the dark theme and
+once for `[data-theme="light"]`:
 
-- `ink-50 … ink-900` — neutral slate ramp (text, borders, surfaces)
-- `brand-50 … brand-700` — indigo, used for accents and the gradient headline
-- `accent-500 / accent-600` — teal, used for "live" states and check marks
+- `bg`, `panel`, `chip`, `line` for backgrounds, cards and borders
+- `fg`, `fg-2`, `fg-3` for text from strongest to softest
+- `a` and `b` are the two ends of the brand gradient (emerald and indigo)
 
 Change those values and the whole page follows.
 
